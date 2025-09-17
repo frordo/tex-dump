@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{\sc{Notes on Euler's Theorem}}
+\author{\sc{Rahul}}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Currently unfinished -- to do
+Which one of Euler's many theorems do I refer to? It is the one on homogeneous functions. To start, let us define:
+
+\subsection{Homogeneous Functions}
+A function $f: \mathbb{R}^k \to \mathbb{R}$ is said to be homogeneous of degree $n$ if\[f(tx_1, tx_2, \dots, tx_k) = t^n f(x_1, x_2, \dots, x_k) \]or using vector notation
+\[f(t \mathbf{x}) = t^n f(\mathbf{x})\]
+
+For instance, in a \emph{homo}geneous polynomial, all terms have the same degree. \underline{Example}: $f(x, y) = x^2 + y^2$. Note that $n$ need not be a positive integer. One may also be familiar with the term homogeneous differential equations.
+
+\section{Euler's Theorem}
+\subsection{Statement}
+If $f: \mathbb{R}^k \to \mathbb{R}$ is continuously differentiable and homogeneous of degree $n$, then
+\[\sum_{i=1}^k x_i \cdot \frac{\partial f}{\partial x_i} = n f(x_1, x_2, \dots, x_k) \]or in vector notation\[\nabla f \cdot \mathbf{x} = n f(\mathbf{x})\]
+\subsubsection{Corollary 1}
+For a single variable, \[x \frac{\partial f}{\partial x} = x \frac{df}{dx} = nf \iff f(x) = cx^n\]
+\subsubsection{Corollary 2}
+For two variables,\[n f(x, y) = x f_x + y f_y\]
+\subsection{Proof of Euler's Theorem}
+\[f(tx_1, tx_2, \dots, tx_k) = t^n f(x_1, x_2, \dots, x_k)\label{eq:1} \tag{1}\]
+Differentiating the LHS of $\eqref{eq:1}$ with respect to $t$, and applying the chain rule,\[\frac{df(t\mathbf{x})}{dt} = \sum_{i=1}^k\frac{\partial f(tx_i)}{\partial tx_i} \frac{d(tx_i)}{dt} = \frac1t \sum_{i=1}^k\frac{\partial f(tx_i)}{\partial x_i} x_i \label{eq:2} \tag{2}\]Differentiating the RHS of $\eqref{eq:1}$ with respect to $t$, \[nt^{n-1} f(\mathbf{x}) = \frac{n t^n f(\mathbf{x})}{t} = \frac{n}{t} f(\mathbf{tx}) \label{eq:3} \tag{3}\]Equating $\eqref{eq:2}$ and $\eqref{eq:3}$, and setting $t = 1$ gives the desired result. \begin{flushright}$\square$\end{flushright}
+
+\subsection{Converse of Euler's Theorem}
+a
+\subsection{Interesting Result}
+\[xf_x + yf_y = nf \label{eq:a} \tag{1}\]
+\[ \left(\frac{\partial}{\partial x} \ (1) \implies x f_{xx} + f_x + yf_{yx} = n f_x \right) \label{eq:b} \tag{2.1}\]
+\[\left(\frac{\partial}{\partial y} \ (1) \implies y f_{yy} + f_y + x f_{xy} = n f_y \right)\label{eq:c} \tag{2.2}\]
+$(2.1) \times x + (2.2) \times y$
+\[(x^2 f_{xx}+y^2 f_{yy}) + (xf_x + yf_y) + xy (f_{xy} + f_{xy}) = n (xf_x + yf_y) \]
+Let $f$ be sufficiently nice--let the second derivative of $f$ be continuous. 
+\[(x^2 f_{xx}+y^2 f_{yy}) + 2xyf_{xy} = n(n-1)f \]
+Where we have used $(1)$ and $f_{xy} = f_{yx}$.
+Denote $f_{\underbrace{xxx}_\text{$n$ times}} = f_{x^n}$\\
+We claim that this generalizes. For the case ${k=3}$,
+\[x^3 f_{x^3} + y^3 f_{y^3} + 3x^2 y f_{x^2y} + 3y^2x f_{y^2x} = n(n-1)(n-2)f\]
+
+In general,
+
+\[ \sum_{r=0}^k \binom{k}{r} x^r y^{k-r} f_{x^r y^{k-r}} = n(n-1)\dotsm(n-(k-1))f \]
+
+\subsubsection*{Proof}
+The base case $2$ is true. Suppose the case $k$ is true. We have to show that the case $k+1$ is true.
+
+\[ \sum_{r=0}^k \binom{k}{r} x^r y^{k-r} f_{x^r y^{k-r}} = n(n-1)\dotsm(n-(k-1))f \]
+
+\[ \sum_{r=0}^k \binom{k}{r} r x^{r-1} y^{k-r} f_{x^r y^{k-r}} + \sum_{r=0}^k \binom{k}{r}  x^{r} y^{k-r} f_{x^{r+1} y^{k-r}} = n(n-1)\dotsm(n-(k-1))f_x \]
+
+\[ \sum_{r=0}^k \binom{k}{r} x^r (k-r)y^{k-r-1} f_{x^r y^{k-r}} + \sum_{r=0}^k \binom{k}{r} x^r y^{k-r} f_{x^r y^{k-r+1}} = n(n-1)\dotsm(n-(k-1))f_y \]
+
+\[\sum_{r=0}^k \binom{k}{r} r x^{r} y^{k-r} f_{x^r y^{k-r}} + \sum_{r=0}^k \binom{k}{r} x^r (k-r)y^{k-r} f_{x^r y^{k-r}} = k \sum_{r=0}^k \binom{k}{r} x^r y^{k-r} f_{x^r y^{k-r}}\] 
+
+\[ \sum_{r=0}^k \binom{k}{r}  x^{r+1} y^{k-r} f_{x^{r+1} y^{k-r}} + \sum_{r=0}^k \binom{k}{r} x^r y^{k-r+1} f_{x^r y^{k-r+1}}\]
+
+\end{document}
