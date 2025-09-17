@@ -1,0 +1,30 @@
+\documentclass[11]{article}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{\sc{Proof of Cauchy-Schwarz by Brute Force}}
+\author{\sc{Rahul}}
+\date{\today}
+\begin{document}
+\maketitle
+
+Reading this book called Kleppner and Kolenkow, and some part of the discussion of the coriolis force reminded me of an IMC problem I saw
+
+$$a_\theta = (2 \dot r \theta + r \ddot \theta)$$
+
+$$ra_\theta = r(2 \dot r \theta + r \ddot \theta) = \frac{d}{dt} (r^2 \dot \theta)$$
+
+$$\displaystyle  {2f'(x)+xf''(x)\geq1} \quad\text{for \(\displaystyle x\in(-1,1)\)}.$$
+
+Recognize this? :D (IMC2019 Day 1 P3)
+
+$$x(2f'(x)+xf''(x)) = (x^2f'(x))' $$
+The solution is straightforward from here
+
+\end{document}

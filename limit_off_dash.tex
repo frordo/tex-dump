@@ -1,0 +1,40 @@
+\documentclass[11]{article}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{\sc{Proof of Cauchy-Schwarz by Brute Force}}
+\author{\sc{Rahul}}
+\date{13 March, 2025}
+\begin{document}
+\maketitle
+
+Suppose that $f$ and $f'$ are continuous on $\mathbb{R}$, and that $\displaystyle\lim_{x\to\infty}f(x)$ and $\displaystyle\lim_{x\to\infty}f'(x)$ both exist. Then show that $$\displaystyle\lim_{x\to\infty}f'(x) = 0$$
+
+
+This is quite intuitive. If $f$ converges to a fixed number, then $f'$ must converge to zero (otherwise $f$ would keep changing and not converge to a fixed number). In other words, it is a horizontal asymptote. How do we formalize this intuition?
+
+The answer, is of course the mean value theorem! (it is always the mean value theorem :D)
+
+There exists a $c_n \in [n, n+1]$ such that
+$$f(n+1) - f(n) = f'(c_n)$$
+$$\lim_{n\to\infty} f(n+1) - f(n)= \lim_{x\to\infty} f'(c_n)$$
+
+$$\lim_{c_n\to\infty} f'(c_n) = \lim_{n\to\infty} f(n+1) - f(n) = 0$$
+
+Since the limit is given to exist, and it equals to zero for one sequence, it must be equal to zero for all sequences.
+
+If you relax the conditions of the problem, say for example if you do not required that $\displaystyle\lim_{x\to\infty}f'(x)$ exists, the proof will not work. For example consider $f(x) = \frac{\sin x^2}{x}$ (credit to user \href{https://math.stackexchange.com/questions/42277/proving-that-lim-limits-x-to-inftyfx-0-when-lim-limits-x-to-inftyf/42298#comment5425701_42277}{Daniel on math.SE}).
+
+Another way (nearly the same as the MVT one):
+$$\lim_{x\to\infty}\frac{f(x)}{x} = \lim_{x\to\infty}f'(x) = 0$$
+
+Here is a very slick proof: (using L'Hopital)
+$$\lim_{x\to\infty}f(x) = \lim_{x\to\infty}\frac{f(x)e^x}{e^x} = \lim_{x\to\infty}\frac{e^x(f(x) + f'(x)}{e^x} = \lim_{x\to\infty} f(x) + f'(x)$$
+$$\lim_{x\to\infty} f'(x) = 0$$
+\end{document}
