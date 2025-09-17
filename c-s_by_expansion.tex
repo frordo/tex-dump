@@ -1,0 +1,52 @@
+\documentclass[11]{article}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{\sc{Proof of Cauchy-Schwarz by Brute Force}}
+\author{\sc{Rahul}}
+\date{\today}
+\begin{document}
+\maketitle
+The Cauchy Schwarz inequality states that for any real numbers $\mathbf{a} = (a_1, a_2, \dots a_n)$ and $\mathbf{b} = (b_1, b_2, \dots, b_n)$,
+
+\[(a_1 b_1 + a_2 b_2 + \cdots + a_n b_n) \leq (a_1^2 + a_2^2 + \cdots a_n^2)^{\frac12} (b_1^2 + b_2^2 + b_n^2)^{\frac12}\]
+
+or more concisely,
+
+\[\sum a_i b_i \leq \left(\sum a_i^2\right)^{\frac12} \left(\sum b_i^2\right)^{\frac12},\]
+
+with equality if $\mathbf{a} = \lambda \mathbf{b}$.
+(Any unmarked sum $\displaystyle\sum$ means $\displaystyle\sum_{i=1}^n.$)
+
+The naive and immediate approach to try proving this is by just squaring and expanding. And that is what we will try to do.
+
+\subsubsection*{Proof}
+
+\begin{align*}
+\left(\sum_i a_i b_i \right)^2 &= \left(\sum_i a_i^2\right)\left(\sum_i b_i^2\right)\\
+\left(\sum_i a_i b_i \right)^2 &= \sum_i (a_i b_i)^2 + \sum_{i \neq j} a_i b_i a_j b_j\\
+\left(\sum_i a_i^2\right)\left(\sum_i b_i^2\right) &= \sum_i (a_i b_i)^2 + \sum_{i\neq j} a_i^2 b_j^2\\
+\left(\sum_i a_i^2\right)\left(\sum_i b_i^2\right) - \left(\sum_i a_i b_i \right)^2
+&= \sum_{1\leq i<j\leq n} a_i^2 b_j^2 + b_i^2 a_j^2 - 2a_ia_j b_i b_j\\
+&=\sum_{1\leq i<j\leq n}(a_i b_j - a_j b_i)^2 \geq 0. \quad \hfill \square
+\end{align*}
+
+Some motivation from \href{https://www.dpmms.cam.ac.uk/~wtg10/csineq.html}{Tim Gowers}. Note the equality case, $a_i = \lambda b_i$. How would we represent this, in a terse mathematical way? Feynman famously claims in his lectures \href{https://www.feynmanlectures.caltech.edu/II_25.html}{(II-25-6)} (paraphrased)
+\begin{displayquote}
+\textit{All of the laws of physics can be contained in one equation}. That equation is $$U=0,$$where $U = U_1 + U_2 + U_3 + \dotsm$, where $U_1 = (F-ma)^2$ and $U_2 = (E - mc^2)^2$ and so on.
+\end{displayquote}
+
+Following Feynman's lead, we find that $$\sum \left(a_i - \lambda b_i\right)^2 = 0.$$
+
+Instead of dealing with $\lambda$, we will say that $\frac{a_i}{b_i} = \frac{a_j}{b_j} \iff a_i b_j - a_jb_i$ for a more symmetric condition. Now using our trick,
+$$\sum_{(i,j)} (a_i b_j - a_jb_i)^2 \geq 0.$$
+
+Expanding gives $$\sum(a_i^2b_j^2 +a_j^2b_i^2 -2a_ib_ja_jb_i) = 2\left(\sum a_i^2\right) \left(\sum b_j^2\right) - 2\left(\sum a_ib_i\right)^2 \geq 0. \quad \square$$
+
+\end{document}
