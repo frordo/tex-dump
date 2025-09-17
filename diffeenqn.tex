@@ -1,0 +1,36 @@
+\documentclass[11]{article}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{\sc{I Dislike Differential Equations}}
+\author{\sc{Rahul}}
+\date{26 April, 2025}
+\begin{document}
+\maketitle
+i was doing some random DE. It simplified to this:
+
+$$\frac{x dy - y dx}{x^2 + y^2}$$
+
+Now instead of homogenizing it or whatever like a normal person, i saw that the denominator was $|z|^2$ where $z = x+iy$. See where i'm going with this?
+
+$$z = x + iy$$
+$$dz = dx + i dy$$
+$$\bar{z} \ dz = (x \ dx + y \ dy) + i (x \ dy - y \ dx)$$
+$$\frac{\bar{z} \ dz}{z \bar{z}} = \frac{(x \ dx + y \ dy) + i (x \ dy - y \ dx)}{x^2 + y^2}$$
+$$ d(\ln z) =  \frac{(x \ dx + y \ dy)}{x^2 + y^2} + i \frac{(x \ dy - y \ dx)}{x^2 + y^2}$$
+
+Now using $z = r e^{i \theta}$, we get $\ln z = \ln r + i \theta$. Equating real and imaginary components:
+
+$$\boxed{ \frac{(x \ dx + y \ dy)}{x^2 + y^2} = d(\ln \sqrt{x^2+y^2})}$$
+
+$$\boxed{\frac{(x \ dy - y \ dx)}{x^2 + y^2} = d\left(\tan^{-1} \frac{y}{x}\right)}$$
+
+(typing this i realise this is just polar coordinates. but still)
+
+\end{document}

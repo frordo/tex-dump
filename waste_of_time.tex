@@ -1,0 +1,89 @@
+\documentclass[11]{article}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[margin=0.25in]{geometry}
+\usepackage{hyperref}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{\sc{This Took a Long Time to Make}}
+\author{\sc{Rahul}}
+\date{23 April, 2025}
+\begin{document}
+\maketitle
+Problem: Let $x_1,\cdots, x_9$ be the distinct roots of $x^9-9=0$. Let $\Lambda=\prod_{1\leq i<j\leq 9}(x_i+x_j)$ then find $\Lambda^2$.
+
+
+\[
+\Lambda =
+\begin{array}{lllllllll}
+(x_1+x_2) & (x_1+x_3) & (x_1+x_4) & (x_1+x_5) & (x_1+x_6) & (x_1+x_7) & (x_1+x_8) & (x_1+x_9) & \\
+          & (x_2+x_3) & (x_2+x_4) & (x_2+x_5) & (x_2+x_6) & (x_2+x_7) & (x_2+x_8) & (x_2+x_9) & \\
+          &           & (x_3+x_4) & (x_3+x_5) & (x_3+x_6) & (x_3+x_7) & (x_3+x_8) & (x_3+x_9) & \\
+          &           &           & (x_4+x_5) & (x_4+x_6) & (x_4+x_7) & (x_4+x_8) & (x_4+x_9) & \\
+          &           &           &           & (x_5+x_6) & (x_5+x_7) & (x_5+x_8) & (x_5+x_9) & \\
+          &           &           &           &           & (x_6+x_7) & (x_6+x_8) & (x_6+x_9) & \\
+          &           &           &           &           &           & (x_7+x_8) & (x_7+x_9) & \\
+          &           &           &           &           &           &           & (x_8+x_9) & \\
+          &           &           &           &           &           &           &           &
+\end{array}
+\]
+\[
+\begin{aligned}
+\Lambda =\ &
+\begin{array}{lllllllll}
+          &           &           &           &           &           &           &           &           \\
+\textcolor{blue}{(x_2+x_1)} &           &           &           &           &           &           &           &           \\
+\textcolor{blue}{(x_3+x_1)} & \textcolor{blue}{(x_3+x_2)} &           &           &           &           &           &           &           \\
+\textcolor{blue}{(x_4+x_1)} & \textcolor{blue}{(x_4+x_2)} & \textcolor{blue}{(x_4+x_3)} &           &           &           &           &           &           \\
+\textcolor{blue}{(x_5+x_1)} & \textcolor{blue}{(x_5+x_2)} & \textcolor{blue}{(x_5+x_3)} & \textcolor{blue}{(x_5+x_4)} &           &           &           &           &           \\
+\textcolor{blue}{(x_6+x_1)} & \textcolor{blue}{(x_6+x_2)} & \textcolor{blue}{(x_6+x_3)} & \textcolor{blue}{(x_6+x_4)} & \textcolor{blue}{(x_6+x_5)} &           &           &           &           \\
+\textcolor{blue}{(x_7+x_1)} & \textcolor{blue}{(x_7+x_2)} & \textcolor{blue}{(x_7+x_3)} & \textcolor{blue}{(x_7+x_4)} & \textcolor{blue}{(x_7+x_5)} & \textcolor{blue}{(x_7+x_6)} &           &           &           \\
+\textcolor{blue}{(x_8+x_1)} & \textcolor{blue}{(x_8+x_2)} & \textcolor{blue}{(x_8+x_3)} & \textcolor{blue}{(x_8+x_4)} & \textcolor{blue}{(x_8+x_5)} & \textcolor{blue}{(x_8+x_6)} & \textcolor{blue}{(x_8+x_7)} &           &           \\
+\textcolor{blue}{(x_9+x_1)} & \textcolor{blue}{(x_9+x_2)} & \textcolor{blue}{(x_9+x_3)} & \textcolor{blue}{(x_9+x_4)} & \textcolor{blue}{(x_9+x_5)} & \textcolor{blue}{(x_9+x_6)} & \textcolor{blue}{(x_9+x_7)} & \textcolor{blue}{(x_9+x_8)} &
+\end{array}
+\end{aligned}
+\]
+
+
+\[
+\Lambda^2 =
+\begin{array}{llllllll}
+(x_1+x_2) & (x_1+x_3) & (x_1+x_4) & (x_1+x_5) & (x_1+x_6) & (x_1+x_7) & (x_1+x_8) & (x_1+x_9) \\
+\textcolor{blue}{(x_2+x_1)} & (x_2+x_3) & (x_2+x_4) & (x_2+x_5) & (x_2+x_6) & (x_2+x_7) & (x_2+x_8) & (x_2+x_9) \\
+\textcolor{blue}{(x_3+x_1)} & \textcolor{blue}{(x_3+x_2)} & (x_3+x_4) & (x_3+x_5) & (x_3+x_6) & (x_3+x_7) & (x_3+x_8) & (x_3+x_9) \\
+\textcolor{blue}{(x_4+x_1)} & \textcolor{blue}{(x_4+x_2)} & \textcolor{blue}{(x_4+x_3)} & (x_4+x_5) & (x_4+x_6) & (x_4+x_7) & (x_4+x_8) & (x_4+x_9) \\
+\textcolor{blue}{(x_5+x_1)} & \textcolor{blue}{(x_5+x_2)} & \textcolor{blue}{(x_5+x_3)} & \textcolor{blue}{(x_5+x_4)} & (x_5+x_6) & (x_5+x_7) & (x_5+x_8) & (x_5+x_9) \\
+\textcolor{blue}{(x_6+x_1)} & \textcolor{blue}{(x_6+x_2)} & \textcolor{blue}{(x_6+x_3)} & \textcolor{blue}{(x_6+x_4)} & \textcolor{blue}{(x_6+x_5)} & (x_6+x_7) & (x_6+x_8) & (x_6+x_9) \\
+\textcolor{blue}{(x_7+x_1)} & \textcolor{blue}{(x_7+x_2)} & \textcolor{blue}{(x_7+x_3)} & \textcolor{blue}{(x_7+x_4)} & \textcolor{blue}{(x_7+x_5)} & \textcolor{blue}{(x_7+x_6)} & (x_7+x_8) & (x_7+x_9) \\
+\textcolor{blue}{(x_8+x_1)} & \textcolor{blue}{(x_8+x_2)} & \textcolor{blue}{(x_8+x_3)} & \textcolor{blue}{(x_8+x_4)} & \textcolor{blue}{(x_8+x_5)} & \textcolor{blue}{(x_8+x_6)} & \textcolor{blue}{(x_8+x_7)} & (x_8+x_9) \\
+\textcolor{blue}{(x_9+x_1)} & \textcolor{blue}{(x_9+x_2)} & \textcolor{blue}{(x_9+x_3)} & \textcolor{blue}{(x_9+x_4)} & \textcolor{blue}{(x_9+x_5)} & \textcolor{blue}{(x_9+x_6)} & \textcolor{blue}{(x_9+x_7)} & \textcolor{blue}{(x_9+x_8)}
+\end{array}
+\]
+
+\[
+\frac{\Lambda^2}{\textcolor{red}{2^9 x_1\dotsm x_9}} =
+\begin{array}{lllllllll}
+\textcolor{red}{(x_1+x_1)} & (x_1+x_2) & (x_1+x_3) & (x_1+x_4) & (x_1+x_5) & (x_1+x_6) & (x_1+x_7) & (x_1+x_8) & (x_1+x_9) \\
+\textcolor{red}{(x_2+x_2)} & \textcolor{blue}{(x_2+x_1)} & (x_2+x_3) & (x_2+x_4) & (x_2+x_5) & (x_2+x_6) & (x_2+x_7) & (x_2+x_8) & (x_2+x_9) \\
+\textcolor{red}{(x_3+x_3)} & \textcolor{blue}{(x_3+x_1)} & \textcolor{blue}{(x_3+x_2)} & (x_3+x_4) & (x_3+x_5) & (x_3+x_6) & (x_3+x_7) & (x_3+x_8) & (x_3+x_9) \\
+\textcolor{red}{(x_4+x_4)} & \textcolor{blue}{(x_4+x_1)} & \textcolor{blue}{(x_4+x_2)} & \textcolor{blue}{(x_4+x_3)} & (x_4+x_5) & (x_4+x_6) & (x_4+x_7) & (x_4+x_8) & (x_4+x_9) \\
+\textcolor{red}{(x_5+x_5)} & \textcolor{blue}{(x_5+x_1)} & \textcolor{blue}{(x_5+x_2)} & \textcolor{blue}{(x_5+x_3)} & \textcolor{blue}{(x_5+x_4)} & (x_5+x_6) & (x_5+x_7) & (x_5+x_8) & (x_5+x_9) \\
+\textcolor{red}{(x_6+x_6)} & \textcolor{blue}{(x_6+x_1)} & \textcolor{blue}{(x_6+x_2)} & \textcolor{blue}{(x_6+x_3)} & \textcolor{blue}{(x_6+x_4)} & \textcolor{blue}{(x_6+x_5)} & (x_6+x_7) & (x_6+x_8) & (x_6+x_9) \\
+\textcolor{red}{(x_7+x_7)} & \textcolor{blue}{(x_7+x_1)} & \textcolor{blue}{(x_7+x_2)} & \textcolor{blue}{(x_7+x_3)} & \textcolor{blue}{(x_7+x_4)} & \textcolor{blue}{(x_7+x_5)} & \textcolor{blue}{(x_7+x_6)} & (x_7+x_8) & (x_7+x_9) \\
+\textcolor{red}{(x_8+x_8)} & \textcolor{blue}{(x_8+x_1)} & \textcolor{blue}{(x_8+x_2)} & \textcolor{blue}{(x_8+x_3)} & \textcolor{blue}{(x_8+x_4)} & \textcolor{blue}{(x_8+x_5)} & \textcolor{blue}{(x_8+x_6)} & \textcolor{blue}{(x_8+x_7)} & (x_8+x_9) \\
+\textcolor{red}{(x_9+x_9)} & \textcolor{blue}{(x_9+x_1)} & \textcolor{blue}{(x_9+x_2)} & \textcolor{blue}{(x_9+x_3)} & \textcolor{blue}{(x_9+x_4)} & \textcolor{blue}{(x_9+x_5)} & \textcolor{blue}{(x_9+x_6)} & \textcolor{blue}{(x_9+x_7)} & \textcolor{blue}{(x_9+x_8)}
+\end{array}
+\]
+
+\[ (x-x_1)(x-x_2)\dotsm(x-x_9) = x^9 -9\implies(-x-x_1)(-x-x_2)\dotsm(-x-x_9) = -x^9 - 9 \implies (x+x_1)\dotsm(x+x_9) = x^9 + 9 \]
+
+Also $(x_1 x_2 \dotsm x_9) = 9$. From this we can finish the solution easily.
+
+
+
+\end{document}
