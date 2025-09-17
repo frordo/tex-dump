@@ -1,0 +1,80 @@
+\documentclass[11]{article}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{\sc{Some Properties of the Natural Logarithm}}
+\author{\sc{Rahul}}
+\date{13 March, 2025}
+\begin{document}
+\maketitle
+I just wanted to re-derive all the properties of $\log x$ (to base $e$), to convince myself nothing here was circular. I don't like using $\ln$ so $\log$ will have to do.
+
+$$\log x \stackrel{\textrm{def}}{=} \int_{1}^{x} \frac1t \,dt \quad (x>0)$$
+
+1. $\log 1 = 0$.
+
+2. $\log(xy) = \log x+ \log y$
+
+$$\log(xy) = \int_{1}^{xy} \frac1t \,dt = \int_{1}^{x} \frac1t \,dt + \int_{x}^{xy} \frac1t \,dt$$
+For the second integral, $t \mapsto \frac{t}{x} $
+$$\int_{x}^{xy} \frac1t \,dt = \int_{1}^{y} \frac1t \,dt$$
+
+Therefore $\log xy = \log x + \log y$.
+
+
+3. $\log(x/y) = \log x - \log y$
+
+$$\log(x/y) = \int_{1}^{x/y} \frac1t \,dt = \int_{1}^{x} \frac1t \,dt + \int_{x}^{x/y} \frac1t \,dt$$
+For the second integral $t \mapsto \frac{y}{x} t$
+$$ \int_{x}^{x/y} \frac1t \,dt = \int_{y}^{1} \frac1t \,dt = - \int_{1}^{y} \frac1t \,dt = -\log y$$
+$$\log(x/y) = \log x - \log y$$
+
+
+4. $\log (x^y) = y \log x$
+
+Let $u = t^{1/y}$, $dt = yu^{y-1} du$
+$$\log(x^y) = \int_{1}^{x^y} \frac1t \,dt = \int_{1}^{x} \frac1{u^y} y u^{y-1}\,du = y \int_{1}^{x} \frac1u \,du = y \log x$$
+
+
+5. $\log x$ is continuous and differentiable on $\mathbb{R}$ (this follows from Fundamental theorem of calculus)
+
+6. $\frac{d}{dx} \log x = \frac1x$ (follows from leibnitz rule). Also, $\log x$ is monotonically increasing.
+
+7. As $\log x$ is monotonically increasing and continuous, it is invertible.
+
+8. $\log e = 1$
+
+Define $e = \lim_{n \to \infty} \left(1 + \frac1n\right)^n$. It may be shown that this limit exists, converges etc. Take $\log$ on both sides (which is justified as $\log$ is continuous, and the limit is positive)
+$$\log e = \lim_{n \to \infty} \log\left(1 + \frac1n\right)^n = \lim_{n \to \infty} n \log \left(1 + \frac1n\right) = \lim_{x \to 0} \frac{\log \left(1 + x\right)}{x}$$
+
+Now for the last limit use L'Hopital, to find $\log e = 1$.
+
+9. $\exp(\log x) = x$
+
+Here we will use the chain rule, and the fact that $(e^x)' = e^x$ (which can be shown equivalent to the previous definition of $e$)
+Let $f(x) = e^{\log x}$
+
+$$f'(x) = e^{\log x} \frac1x$$
+$$f''(x) = e^{\log x} \frac1{x^2} - e^{\log x} \frac1{x^2} = 0$$
+$$f'' = 0 \implies f' = c \implies f = cx + d$$
+$$f(1) = 1 = c + d, \quad f(e) = e = ce + d \implies c = 1, d =0$$ 
+$$f(x) = x$$
+$$e^{\log x} = x$$
+
+
+10. $\log(e^x) =x $
+
+$$e^x = \lim_{n \to \infty} \left(1 + \frac{x}n\right)^n$$
+$$\log e = \lim_{n \to \infty} \log\left(1 + \frac{x}n\right)^n = \lim_{n \to \infty} n \log \left(1 + \frac{x}n\right) = \lim_{u \to 0} \frac{\log \left(1 + xu\right)}{u}$$
+
+Use L'hopital and the result follows.
+
+11. $e^x$ and $\log x$ are inverses.
+
+\end{document}
