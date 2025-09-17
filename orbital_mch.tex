@@ -1,0 +1,52 @@
+\documentclass[11]{article}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{\sc{Introductory Orbital Mechanics Notes}}
+\author{\sc{Rahul}}
+\date{April 4, 2025}
+\begin{document}
+\maketitle
+First, we will show that two-body problem can be converted into a one-body problem: 
+
+Let the masses of two bodies be $m_1$ and $m_2$, their positions $\boldsymbol{r_1}$ and $\boldsymbol{r_2}$. Let $\boldsymbol r = \boldsymbol{r_2} - \boldsymbol{r_1}$ and let $r = |\boldsymbol{r}|$. Then using Newton's third law, and the law of gravitation, 
+
+\[m_1 \boldsymbol{\ddot r_1} = -\frac{Gm_1 m_2}{r^2} \boldsymbol{\hat r} \]
+\[m_2 \boldsymbol{\ddot r_2} = \frac{Gm_1 m_2}{r^2}  \boldsymbol{\hat r} \]
+
+Adding gives $m_1 \boldsymbol{\ddot r_1} + m_2 \boldsymbol{\ddot r_2} = 0$. Define as usual $\boldsymbol{r_{CM}} := \frac{m_1 \boldsymbol{r_1} + m_2 \boldsymbol{r_2}}{m_1 + m_2}$. Then 
+
+\[\boldsymbol{\ddot r_{CM}} = 0\]
+
+This motivates us to use COM coordinates. In our new coordinates the first object is located at $\boldsymbol r_1 - \boldsymbol r_{CM} = -\frac{m_2}{m_1 + m_2} \boldsymbol{r}$ and the second at $\frac{m_1}{m_1 + m_2} \boldsymbol{r}$
+
+Now dividing by mass and subtracting our first two equations give
+\[ \boldsymbol{\ddot r_2} - \boldsymbol{\ddot r_1} = \frac{Gm_1 m_2}{r^3} \left(\frac1m_1 + \frac1m_2\right) \boldsymbol r \]
+
+Define the reduced mass $\mu$ so that $\frac1\mu = \left(\frac1m_1 + \frac1m_2\right)$
+
+\[ \boldsymbol{\ddot{r}} =F(r) \boldsymbol{r} \]
+
+which is the same equation as the one-body central force problem!
+
+Now that we know a two-body problem is equivalent to a one-body problem with mass taken to be reduced mass, let us analyze some characteristics of central force one-body problems
+
+1. Central force motion is planar
+\[ \mathbf{L} = \mu \boldsymbol r \times \boldsymbol{\dot{r}} \]
+\[ \frac{d\mathbf{L}}{dt} = \mu \left( \boldsymbol{\dot{r}} \times \boldsymbol{\dot{r}} + \boldsymbol{r} \times \boldsymbol{\ddot{r}} \right)\]
+
+as $\boldsymbol{\ddot{r}} \propto \boldsymbol{r}$, $\frac{d\mathbf{L}}{dt} = 0 \implies \mathbf{L}$ is constant. This is enough to force the motion to be planar (where the plane is so that $\mathbf L$ is normal to it)
+
+
+2. Kepler's second law
+Notice that \[ \mathbf{L} = \mu \boldsymbol r \times \boldsymbol{\dot{r}} = \mu \boldsymbol r \times \boldsymbol v \]
+
+Where $\boldsymbol v$ is the velocity. The area is traversed in a small time interval is given by $|\boldsymbol r \times \boldsymbol v dt| = \frac{|\mathbf L|}{2\mu} dt$ which is constant. Therefore equal areas are swept in equal times.
+
+\end{document}

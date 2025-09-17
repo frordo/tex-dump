@@ -1,0 +1,39 @@
+\documentclass[11]{article}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\title{\sc{Boring Integrals}}
+\author{\sc{Rahul}}
+\date{25 March, 2025}
+\begin{document}
+\maketitle
+I will derive the reduction formula for $$I_{m, \ n} = \int_0^{\pi/2} \sin^m x \cos^n x \  dx$$
+Firstly notice it is symmetric about $m$ and $n$ (using $x \mapsto \pi/2 - x$)
+
+Also notice that the limits of integration are very favorable to integrating by parts. What I mean is $\sin(0) = 0$ and $\cos(\pi/2) = 0$, so we will do
+
+$$I_{m, n} = \int_0^{\pi/2} \sin^m x \cos^n x \ dx = \int_0^{\pi/2} \sin^m x \cos^{n-1} x \  d(\sin x) $$
+$$= \underbrace{ \frac{\sin^{m+1} x}{m+1} \cos^{n-1} x \Bigr\rvert_0^{\pi/2} }_{0} \ + \  \frac{n-1}{m+1}\int_0^{\pi/2} \sin^{m+2} x \ \cos^{n-2} x \ dx$$
+$$I_{m, \ n} = \frac{n-1}{m+1} I_{m+2, \ n-2} = \frac{m-1}{n+1} I_{m-2, \ n+2}$$
+
+(where the last equality follows from symmetry of $m$ and $n$)
+
+If $m$ and $n$ are even, 
+$$I_{m, \ n} = \frac{n-1}{m+1} I_{m+2, \ n-2} = \frac{(n-1)(n-2)}{(m+1)(m+2)} I_{m+4, \ n-4} = \cdots= \frac{(n-1)(n-3)\dots(1)}{(m+1)(m+3)\dots(m+n-1)} I_{m+n, \ 0}$$
+
+So now all we need to do is find $I_{m+n, 0} = \int_0^{\pi/2} \sin^{m+n} x \ dx$
+which is just Wallis product.
+
+Eventually we find $$I_{m,n} = \frac{((m-1)(m-3) \cdots 1)((n-1)(n-3) \cdots 1)}{(m+n)(m+n-2) \cdots (2)} \left(\frac{\pi}{2}\right)$$
+
+The case for $m$ or $n$ odd is easier and is left as an exercise to the reader  :D 
+
+In terms of the gamma function, 
+$$I_{m, n} = \dfrac{\Gamma\left(\dfrac{m + 1}{2}\right) \Gamma\left(\dfrac{n + 1}{2}\right)}{2 \Gamma\left(\dfrac{m + n + 2}{2}\right)}$$
+\end{document}
